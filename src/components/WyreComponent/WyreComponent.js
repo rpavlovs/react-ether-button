@@ -43,16 +43,13 @@ class WyreComponent extends React.Component {
   render() {
     return (
       <>
-        <ReactLoadScript
-          url="https://verify.sendwyre.com/js/widget-loader.js"
-          onLoad={this.handleWyreLoad}
-        />
+        <ReactLoadScript url="https://verify.sendwyre.com/js/widget-loader.js" />
         <button
           onClick={() => {
-            widget.open()
+            this.handleWyreLoad()
           }}
         >
-          this is the wyre component
+          No, I'd rather pay with my debit card
         </button>
       </>
     )
