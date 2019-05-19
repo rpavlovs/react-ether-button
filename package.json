@@ -10,7 +10,8 @@
     "prepublishOnly": "npm run transpile",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "npm run build && npm run deploy"
+    "publish-demo": "npm run build && npm run deploy",
+    "precommit": "pretty-quick --staged"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,9 @@
     "css-loader": "^2.1.1",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.3.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.10.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",

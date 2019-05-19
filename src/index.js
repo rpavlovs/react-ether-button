@@ -1,7 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-const MyComponent = () => (
-  <button>The button</button>
-);
+class ReactEtherButton extends React.Component {
+  render() {
+    return <button>The button!</button>
+  }
+}
 
-export default MyComponent;
+export default ReactEtherButton
