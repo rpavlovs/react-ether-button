@@ -1,11 +1,14 @@
 import React from 'react';
 import { render} from 'react-dom';
 
-import MyComponent from '../../src';
+import ReactEtherButton from '../../src';
 
 
 const App = () => (
-    <MyComponent />
-);
+  <div>
+    Here is our button:
+    <ReactEtherButton />
+  </div>
+)
 
 render(<App />, document.getElementById("root"));
