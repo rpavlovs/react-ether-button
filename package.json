@@ -1,0 +1,55 @@
+{
+  "name": "react-ether-button",
+  "version": "1.0.1",
+  "description": "A button to accept ether",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "npm run transpile",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d examples/dist",
+    "publish-demo": "npm run build && npm run deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpavlovs/react-ether-button.git"
+  },
+  "keywords": [
+    "ethereum",
+    "portis",
+    "wyre",
+    "fortmatic",
+    "npm",
+    "metamask",
+    "react",
+    "button"
+  ],
+  "author": "Roman Pavlovskyi, Aaron Anderson, Lyndon Jude",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rpavlovs/react-ether-button/issues"
+  },
+  "homepage": "https://github.com/rpavlovs/react-ether-button#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^2.1.1",
+    "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  }
+}
