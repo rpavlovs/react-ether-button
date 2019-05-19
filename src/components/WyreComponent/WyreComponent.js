@@ -1,6 +1,8 @@
 import React from 'react'
+import ReactLoadScript from 'react-load-script'
 
-const WyreClient = require('@wyre/api').WyreClient
+const Wyre = require('@wyre/api')
+const WyreClient = Wyre.WyreClient
 
 let wyre = new WyreClient({
   format: 'json_numberstring',
@@ -9,18 +11,51 @@ let wyre = new WyreClient({
   baseUrl: 'https://api.testwyre.com',
 })
 
-// wyre.get('/v2/account').then(
-//   account => {
-//     console.log('I am Wyre account ', account.id)
-//   },
-//   err => {
-//     console.log("Problems, cap'n: ", err)
-//   }
-// )
-
 class WyreComponent extends React.Component {
+  handleWyreLoad = () => {
+    wyre.get('/v2/account').then(
+      account => {
+        console.log('I am Wyre account ', account.id)
+        var widget = new window.Wyre.Widget({
+          env: 'test',
+          accountId: 'YOUR_WYRE_ACCOUNT_ID',
+          auth: {
+            type: 'secretKey',
+            secretKey: 'aaksdgkjhdfkgjlakjdfglskdjfglksjdflgksjdflgkjsdflk',
+          },
+          operation: {
+            type: 'debitcard',
+            // type: 'onramp',
+            dest: 'ethereum:0xe8bF424E047372d249d0826c5567655ba3B72f18',
+            // sourceCurrency: 'USD',
+            destCurrency: 'ETH',
+            // destAmount: 0.03,
+          },
+        })
+        widget.open()
+      },
+      err => {
+        console.log("Problems, cap'n: ", err)
+      }
+    )
+  }
+
   render() {
-    return <div>this is the wyre component</div>
+    return (
+      <>
+        <ReactLoadScript
+          url="https://verify.sendwyre.com/js/widget-loader.js"
+          onLoad={this.handleWyreLoad}
+        />
+        <button
+          onClick={() => {
+            widget.open()
+          }}
+        >
+          this is the wyre component
+        </button>
+      </>
+    )
   }
 }
 
