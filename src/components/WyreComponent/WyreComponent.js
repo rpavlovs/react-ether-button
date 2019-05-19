@@ -2,7 +2,7 @@ import React from 'react'
 
 class WyreComponent extends React.Component {
   render() {
-    return <button>The button!</button>
+    return <button>This is the Wyre Component</button>
   }
 }
 
