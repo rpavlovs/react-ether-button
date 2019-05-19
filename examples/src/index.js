@@ -1,17 +1,14 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import ReactEtherButton from '../../src'
 import GlobalStyles from './global-styles'
+import App from './components/app'
 
-import style from './index.style'
-
-const App = () => (
-  <div css={style.base}>
+const Root = () => (
+  <>
     <GlobalStyles />
-    Here is the button:
-    <ReactEtherButton />
-  </div>
+    <App />
+  </>
 )
 
-render(<App />, document.getElementById('root'))
+render(<Root />, document.getElementById('root'))
